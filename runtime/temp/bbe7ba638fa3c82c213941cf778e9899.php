@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\phpStudy\WWW\tpshop\public/../application/home\view\index\index.html";i:1533291537;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\phpStudy\WWW\tpshop\public/../application/home\view\index\index.html";i:1533709266;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -20,11 +20,19 @@
 	<div class="topnav">
 		<div class="topnav_bd w1210 bc">
 			<div class="topnav_left">
-				
+
 			</div>
 			<div class="topnav_right fr">
 				<ul>
-					<li>您好，欢迎来到京西！[<a href="login.html">登录</a>] [<a href="register.html">免费注册</a>] </li>
+					<li>您好，欢迎来到京西！
+					<?php if(session(member_id)):; ?>
+						[<a href="javascript:;"><?php echo session("member_username")?></a>]
+						[<a href="<?php echo url('home/public/logout'); ?>">退出</a>]
+					<?php else:?>
+						[<a href="<?php echo url('home/public/login'); ?>">未登录</a>]
+						[<a href="<?php echo url('home/public/register'); ?>">免费注册</a>]
+					<?php endif; ?>
+					</li>
 					<li class="line">|</li>
 					<li>我的订单</li>
 					<li class="line">|</li>
@@ -35,7 +43,7 @@
 		</div>
 	</div>
 	<!-- 顶部导航 end -->
-	
+
 	<div style="clear:both;"></div>
 
 	<!-- 头部 start -->
@@ -52,7 +60,7 @@
 					</form>
 					<div class="form_right fl"></div>
 				</div>
-				
+
 				<div style="clear:both;"></div>
 
 				<div class="hot_search">
@@ -124,7 +132,7 @@
 			<!-- 购物车 end -->
 		</div>
 		<!-- 头部上半部分 end -->
-		
+
 		<div style="clear:both;"></div>
 
 		<!-- 导航条部分 start -->
@@ -135,9 +143,9 @@
 					<h2>全部商品分类</h2>
 					<em></em>
 				</div>
-				
+
 				<div class="cat_bd">
-					
+
 					<!-- 循环顶级分类pid=0 -->
 					<?php foreach($children[0] as $one_cat_id): ?>
 					<div class="cat item1">
@@ -156,19 +164,16 @@
 								</dd>
 							</dl>
 						<?php endforeach; ?>
-							
-							
+
+
 						</div>
 					</div>
 					<?php endforeach; ?>
-					
-
-					
 
 				</div>
 
 			</div>
-			<!--  商品分类部分 end--> 
+			<!--  商品分类部分 end-->
 
 			<div class="navitems fl">
 				<ul class="fl">
@@ -176,7 +181,7 @@
 					<?php if(is_array($navDatas) || $navDatas instanceof \think\Collection || $navDatas instanceof \think\Paginator): if( count($navDatas)==0 ) : echo "" ;else: foreach($navDatas as $key=>$nav): ?>
 						<li><a href="<?php echo url('/home/category/index',['cat_id'=>$nav['cat_id']]); ?>"><?php echo $nav['cat_name']; ?></a></li>
 					<?php endforeach; endif; else: echo "" ;endif; ?>
-				
+
 				</ul>
 				<div class="right_corner fl"></div>
 			</div>
@@ -184,9 +189,9 @@
 		<!-- 导航条部分 end -->
 	</div>
 	<!-- 头部 end-->
-	
+
 	<div style="clear:both;"></div>
-	
+
 	<!-- 综合区域 start 包括幻灯展示，商城快报 -->
 	<div class="colligate w1210 bc mt10">
 		<!-- 幻灯区域 start -->
@@ -215,11 +220,11 @@
 			</div>
 		</div>
 		<!-- 幻灯区域 end-->
-	
+
 		<!-- 快报区域 start-->
 		<div class="coll_right fl ml10">
 			<div class="ad"><a href=""><img src="<?php echo config('home_static'); ?>/images/ad.jpg" alt="" /></a></div>
-			
+
 			<div class="news mt10">
 				<h2><a href="">更多快报&nbsp;></a><strong>网站快报</strong></h2>
 				<ul>
@@ -228,13 +233,13 @@
 					<li class="odd"><a href="">爆款手机最高直降1000</a></li>
 					<li><a href="">新鲜褚橙全面包邮开售！</a></li>
 					<li class="odd"><a href="">家具家装全场低至3折</a></li>
-					<li><a href="">买韩束，志玲邀您看电影</a></li> 
+					<li><a href="">买韩束，志玲邀您看电影</a></li>
 					<li class="odd"><a href="">美的先行惠双11快抢悦</a></li>
 					<li><a href="">享生活 疯狂周期购！</a></li>
 				</ul>
 
 			</div>
-			
+
 			<div class="service mt10">
 				<h2>
 					<span class="title1 on"><a href="">话费</a></span>
@@ -259,7 +264,7 @@
 										<option value="">20元</option>
 										<option value="">30元</option>
 										<option value="">50元</option>
-										<option value="" selected>100元</option> 
+										<option value="" selected>100元</option>
 										<option value="">200元</option>
 										<option value="">300元</option>
 										<option value="">400元</option>
@@ -275,7 +280,7 @@
 						</form>
 					</div>
 					<!-- 话费 start -->
-	
+
 					<!-- 旅行 start -->
 					<div class="travel none">
 						<ul>
@@ -290,7 +295,7 @@
 						</ul>
 					</div>
 					<!-- 旅行 end -->
-						
+
 					<!-- 彩票 start -->
 					<div class="lottery none">
 						<p><img src="<?php echo config('home_static'); ?>/images/lottery.jpg" alt="" /></p>
@@ -313,7 +318,7 @@
 		<!-- 快报区域 end-->
 	</div>
 	<!-- -综合区域 end -->
-	
+
 	<div style="clear:both;"></div>
 
 	<!-- 导购区域 start -->
@@ -327,7 +332,7 @@
 				<span>新品上架</span>
 				<span class="last">猜您喜欢</span>
 			</h2>
-			
+
 			<div class="guide_wrap">
 				<!-- 疯狂抢购 start-->
 				<div class="crazy">
@@ -341,8 +346,8 @@
 							</dl>
 						</li>
 						<?php endforeach; ?>
-						
-					</ul>	
+
+					</ul>
 				</div>
 				<!-- 疯狂抢购 end-->
 
@@ -377,7 +382,7 @@
 					</ul>
 				</div>
 				<!-- 推荐商品 end -->
-			
+
 				<!-- 新品上架 start-->
 				<div class="new none">
 					<ul>
@@ -394,13 +399,13 @@
 				</div>
 				<!-- 新品上架 end-->
 
-				
+
 
 			</div>
 
 		</div>
 		<!-- 导购左边区域 end -->
-		
+
 		<!-- 侧栏 网站首发 start-->
 		<div class="sidebar fl ml10">
 			<h2><strong>网站首发</strong></h2>
@@ -417,14 +422,14 @@
 					<dd>电视百科全书，360°无死角操控，感受智能新体验！双核CPU+双核GPU+MEMC运动防抖，58寸大屏打造全新视听盛宴！</dd>
 				</dl>
 			</div>
-			
+
 
 		</div>
 		<!-- 侧栏 网站首发 end -->
-		
+
 	</div>
 	<!-- 导购区域 end -->
-	
+
 	<div style="clear:both;"></div>
 
 	<!--1F 电脑办公 start -->
@@ -452,7 +457,7 @@
 					</ul>
 					<p><a href=""><img src="<?php echo config('home_static'); ?>/images/notebook.jpg" alt="" /></a></p>
 				</div>
-				
+
 
 			</div>
 			<!-- 商品分类信息 end-->
@@ -518,7 +523,7 @@
 							</li>
 						</ul>
 					</div>
-					
+
 					<div class="none">
 						<ul>
 							<li>
@@ -536,7 +541,7 @@
 									<dd><span>售价：</span> <strong>￥2499.00</strong></dd>
 								</dl>
 							</li>
-							
+
 						</ul>
 					</div>
 
@@ -605,7 +610,7 @@
 			<!-- 商品列表信息 end-->
 		</div>
 		<!-- 1F 左侧 end -->
-		
+
 		<!-- 右侧 start -->
 		<div class="sidebar fl ml10">
 			<!-- 品牌旗舰店 start -->
@@ -626,7 +631,7 @@
 				</div>
 			</div>
 			<!-- 品牌旗舰店 end -->
-			
+
 			<!-- 分类资讯 start -->
 			<div class="info mt10">
 				<h2><strong>分类资讯</strong></h2>
@@ -638,10 +643,10 @@
 						<li><a href=""><b>.</b>双十一来临，众商家血拼</a></li>
 					</ul>
 				</div>
-				
+
 			</div>
 			<!-- 分类资讯 end -->
-			
+
 			<!-- 广告 start -->
 			<div class="ads mt10">
 				<a href=""><img src="<?php echo config('home_static'); ?>/images/canon.jpg" alt="" /></a>
@@ -653,7 +658,7 @@
 	</div>
 	<!--1F 电脑办公 start -->
 
-	
+
 	<div style="clear:both;"></div>
 
 	<!-- 底部导航 start -->
@@ -669,7 +674,7 @@
 				<li><a href="">联系客服</a></li>
 			</ul>
 		</div>
-		
+
 		<div class="bnav2">
 			<h3><b></b> <em>配送方式</em></h3>
 			<ul>
@@ -681,7 +686,7 @@
 			</ul>
 		</div>
 
-		
+
 		<div class="bnav3">
 			<h3><b></b> <em>支付方式</em></h3>
 			<ul>
@@ -736,7 +741,7 @@
 			<a href="">京西论坛</a>
 		</p>
 		<p class="copyright">
-			 © 2005-2013 京东网上商城 版权所有，并保留所有权利。  ICP备案证书号:京ICP证070359号 
+			 © 2005-2013 京东网上商城 版权所有，并保留所有权利。  ICP备案证书号:京ICP证070359号
 		</p>
 		<p class="auth">
 			<a href=""><img src="<?php echo config('home_static'); ?>/images/xin.png" alt="" /></a>

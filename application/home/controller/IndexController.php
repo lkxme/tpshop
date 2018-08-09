@@ -1,14 +1,15 @@
-<?php 
+<?php
 namespace app\home\controller; //定义当前类所在的命名空间
 use think\Controller; 	//引入Controller核心控制器
 use app\home\model\Category;
 use app\home\model\Goods;
 class IndexController extends Controller {
-    
+
 	public function index(){
 		//取出导航栏的分类数据（is_show=1）
 		$categoryModel =  new Category();
 		$navDatas = $categoryModel->getNavData(5);
+		// halt($navDatas);
 		//取出首页的三级分类筛选的数据
 		$oldCat = Category::select();
 		//两个技巧

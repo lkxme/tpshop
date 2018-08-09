@@ -9,5 +9,40 @@
 // | Author: 流年 <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
-// 应用公共文件 
+// 应用公共文件
 error_reporting(0); //抑制下标不存在和变量不存在的错误提示
+//发送短信方法
+function sendSms($to,$datas,$tempId)
+{
+   include_once("../extend/sendSms/CCPRestSmsSDK.php");
+
+    //主帐号,对应开官网发者主账号下的 ACCOUNT SID
+    $accountSid= '8a216da864f9f15b0164feaf765104bb';
+
+    //主帐号令牌,对应官网开发者主账号下的 AUTH TOKEN
+    $accountToken= 'eceac38580214d8d8cf1b885a643f857';
+
+    //应用Id，在官网应用列表中点击应用，对应应用详情中的APP ID
+    //在开发调试的时候，可以使用官网自动为您分配的测试Demo的APP ID
+    $appId='8a216da864f9f15b0164feaf76ad04c2';
+
+    //请求地址
+    //沙盒环境（用于应用开发调试）：sandboxapp.cloopen.com
+    //生产环境（用户应用上线使用）：app.cloopen.com
+    $serverIP='app.cloopen.com';
+
+    //请求端口，生产环境和沙盒环境一致
+    $serverPort='8883';
+
+    //REST版本号，在官网文档REST介绍中获得。
+    $softVersion='2013-12-26';
+    //初始化
+    $rest = new REST($serverIP,$serverPort,$softVersion);
+    $rest->setAccount($accountSid,$accountToken);
+    $rest->setAppId($appId);
+
+     // 发送模板短信
+     // echo "Sending TemplateSMS to $to ";
+     $result = $rest->sendTemplateSMS($to,$datas,$tempId);
+     return $result;
+}

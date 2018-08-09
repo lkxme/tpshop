@@ -26,6 +26,20 @@ use think\Route;
 Route::get('/','home/index/index');
 Route::get('houtai','admin/index/index');
 
+Route::group('home',function(){
+    //
+    Route::any('public/sendsms','home/public/sendsms');
+    // 注册的路由
+    Route::any('public/register','home/public/register');
+    //登录路由
+    Route::any('public/login','home/public/login');
+    //退出路由
+    Route::any('public/logout','home/public/logout');
+
+
+
+});
+
 
 //后台admin分组路由
 Route::group('admin',function(){
