@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:71:"E:\phpStudy\WWW\tpshop\public/../application/home\view\index\index.html";i:1533709266;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:71:"E:\phpStudy\WWW\tpshop\public/../application/home\view\index\index.html";i:1533905646;s:63:"E:\phpStudy\WWW\tpshop\application\home\view\public\header.html";i:1533905842;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -17,31 +17,31 @@
 </head>
 <body>
 	<!-- 顶部导航 start -->
-	<div class="topnav">
-		<div class="topnav_bd w1210 bc">
-			<div class="topnav_left">
+    <div class="topnav">
+        <div class="topnav_bd w1210 bc">
+            <div class="topnav_left">
 
-			</div>
-			<div class="topnav_right fr">
-				<ul>
-					<li>您好，欢迎来到京西！
-					<?php if(session(member_id)):; ?>
-						[<a href="javascript:;"><?php echo session("member_username")?></a>]
-						[<a href="<?php echo url('home/public/logout'); ?>">退出</a>]
-					<?php else:?>
-						[<a href="<?php echo url('home/public/login'); ?>">未登录</a>]
-						[<a href="<?php echo url('home/public/register'); ?>">免费注册</a>]
-					<?php endif; ?>
-					</li>
-					<li class="line">|</li>
-					<li>我的订单</li>
-					<li class="line">|</li>
-					<li>客户服务</li>
+            </div>
+            <div class="topnav_right fr">
+                <ul>
+                    <li>您好，欢迎来到京西！
+                    <?php if(session(member_id)):; ?>
+                        [<a href="javascript:;"><?php echo session("member_username")?></a>]
+                        [<a href="<?php echo url('home/public/logout'); ?>">退出</a>]
+                    <?php else:?>
+                        [<a href="<?php echo url('home/public/login'); ?>">未登录</a>]
+                        [<a href="<?php echo url('home/public/register'); ?>">免费注册</a>]
+                    <?php endif; ?>
+                    </li>
+                    <li class="line">|</li>
+                    <li>我的订单</li>
+                    <li class="line">|</li>
+                    <li>客户服务</li>
 
-				</ul>
-			</div>
-		</div>
-	</div>
+                </ul>
+            </div>
+        </div>
+    </div>
 	<!-- 顶部导航 end -->
 
 	<div style="clear:both;"></div>
@@ -149,17 +149,17 @@
 					<!-- 循环顶级分类pid=0 -->
 					<?php foreach($children[0] as $one_cat_id): ?>
 					<div class="cat item1">
-						<h3><a href=""><?php echo $cats[ $one_cat_id ]['cat_name']; ?></a> <b></b></h3>
+						<h3><a href="<?php echo url('/home/category/index',['cat_id'=>$one_cat_id])  ?>"><?php echo $cats[ $one_cat_id ]['cat_name']; ?></a> <b></b></h3>
 						<div class="cat_detail">
 
 							<!-- 循环二级分类 -->
 						<?php foreach($children[  $one_cat_id ] as $two_cat_id): ?>
 							<dl class="dl_1st">
-								<dt><a href=""><?php echo $cats[ $two_cat_id ]['cat_name']; ?></a></dt>
+								<dt><a href="<?php echo url('/home/category/index',['cat_id'=>$two_cat_id])  ?>"><?php echo $cats[ $two_cat_id ]['cat_name']; ?></a></dt>
 								<dd>
 									<!-- 循环三级分类 -->
 									<?php foreach($children[  $two_cat_id ] as $three_cat_id): ?>
-									<a href=""><?php echo $cats[ $three_cat_id ]['cat_name']; ?></a>
+									<a href="<?php echo url('/home/category/index',['cat_id'=>$three_cat_id])  ?>"><?php echo $cats[ $three_cat_id ]['cat_name']; ?></a>
 									<?php endforeach; ?>
 								</dd>
 							</dl>

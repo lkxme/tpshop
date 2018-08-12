@@ -27,7 +27,19 @@ Route::get('/','home/index/index');
 Route::get('houtai','admin/index/index');
 
 Route::group('home',function(){
-    //
+    //面包屑路由
+    Route::any('category/index','home/category/index');
+    //qq登录成功后的回调路由
+    Route::any('member/qqcallback','home/member/qqcallback');
+    //QQ登录第三方登录路由
+    Route::any('member/qqlogin','home/member/qqlogin');
+    //重新设置密码路由
+    Route::any('public/setNewPassword','home/public/setNewPassword');
+    //发送ajax邮箱路由
+    Route::get('public/sendEmail','home/public/sendEmail');
+    //忘记密码找回路由
+    Route::get('public/forgetPassword','home/public/forgetPassword');
+    //发送短信路由
     Route::any('public/sendsms','home/public/sendsms');
     // 注册的路由
     Route::any('public/register','home/public/register');

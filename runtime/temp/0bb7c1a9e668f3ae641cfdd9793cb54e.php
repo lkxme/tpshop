@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"E:\phpStudy\WWW\tpshop\public/../application/admin\view\public\login.html";i:1533291537;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:73:"E:\phpStudy\WWW\tpshop\public/../application/admin\view\public\login.html";i:1533822215;}*/ ?>
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -52,7 +52,7 @@
                     </li>
                     <li>
                         <input name="" type="submit" class="loginbtn" value="登录" />
-                        <label><a href="#">忘记密码？</a></label>
+                        <label><a href="<?php echo url('home/public/forgetPassword'); ?>">忘记密码？</a></label>
                     </li>
                 </ul>
             </div>

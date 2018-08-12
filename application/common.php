@@ -46,3 +46,40 @@ function sendSms($to,$datas,$tempId)
      $result = $rest->sendTemplateSMS($to,$datas,$tempId);
      return $result;
 }
+
+//邮箱发送验证码方法
+function sendEmail($to,$title,$contnet)
+{
+    // 实例化
+    include "../extend/sendEmail/class.phpmailer.php";
+    $pm = new PHPMailer();
+    // 服务器相关信息
+    $pm->Host = 'smtp.163.com'; // SMTP服务器
+    $pm->IsSMTP(); // 设置使用SMTP服务器发送邮件
+    $pm->SMTPAuth = true; // 需要SMTP身份认证
+    $pm->Username = '18613002727'; // 登录SMTP服务器的用户名，邮箱@前面一串字符
+    $pm->Password = 'zaq1xsw2'; //授权码 登录SMTP服务器的密码
+
+    // 发件人信息
+    $pm->From = '18613002727@163.com'; //自己的邮箱
+    $pm->FromName = '精细商城'; // 发件人昵称，名字可以随便取
+    // 循环设置收件人信息
+    foreach($to as $email){
+        $pm->AddAddress($email , ''); // 设置收件人邮箱和昵称，昵称名字随便取
+    }
+    // // 收件人信息
+    // $pm->AddAddress($email, ''); // 设置收件人邮箱和昵称，昵称名字随便取
+    //$pm->AddAddress('888888@qq.com', '8哥'); // 添加另一个收件人
+
+    $pm->CharSet = 'utf-8'; // 内容编码
+    $pm->Subject = $title; // 邮件标题
+    $pm->MsgHTML($contnet); // 邮件内容
+
+    //var_dump($pm->Send()); //成功返回true
+    // 发送邮件
+    if($pm->Send()){
+        return true;
+    }else {
+        return false;
+    }
+}

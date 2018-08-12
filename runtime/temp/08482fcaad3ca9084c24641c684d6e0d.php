@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"E:\phpStudy\WWW\tpshop\public/../application/home\view\public\login.html";i:1533708647;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:72:"E:\phpStudy\WWW\tpshop\public/../application/home\view\public\login.html";i:1533900723;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -58,7 +58,7 @@
 						<li>
 							<label for="">密码：</label>
 							<input type="password" class="txt" name="password" />
-							<a href="find.html">忘记密码?</a>
+							<a href="<?php echo url('home/public/forgetPassword'); ?>">忘记密码?</a>
 						</li>
 						<li class="checkcode">
 							<label for="">验证码：</label>
@@ -80,7 +80,7 @@
 				<div class="coagent mt15">
 					<dl>
 						<dt>使用合作网站登录商城：</dt>
-						<dd class="qq"><a href=""><span></span>QQ</a></dd>
+						<dd class="qq"><a href="<?php echo url('/home/member/qqLogin'); ?>"><span></span>QQ</a></dd>
 						<dd class="weibo"><a href=""><span></span>新浪微博</a></dd>
 						<dd class="yi"><a href=""><span></span>网易</a></dd>
 						<dd class="renren"><a href=""><span></span>人人</a></dd>

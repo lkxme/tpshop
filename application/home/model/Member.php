@@ -9,7 +9,11 @@ class Member extends Model{
     protected static function init(){
         //入库前事件
         Member::event('before_insert',function($member){
-            $member['password'] =md5($member['password'].config('password_salt'));
+            //由于qq登录没有密码选项，需要isset判断防止报错
+            if(isset($member['password'])){
+                $member['password'] = md5($member['password'].config('password_salt'));
+            }
+        //     $member['password'] =md5($member['password'].config('password_salt'));
         });
     }
 
