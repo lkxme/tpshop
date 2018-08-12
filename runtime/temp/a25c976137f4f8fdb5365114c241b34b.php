@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"E:\phpStudy\WWW\tpshop\public/../application/home\view\category\index.html";i:1533913463;s:63:"E:\phpStudy\WWW\tpshop\application\home\view\public\header.html";i:1533905842;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:74:"E:\phpStudy\WWW\tpshop\public/../application/home\view\category\index.html";i:1534075397;s:63:"E:\phpStudy\WWW\tpshop\application\home\view\public\header.html";i:1533905842;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -450,11 +450,11 @@
             <!-- 分类列表 start -->
             <div class="catlist">
                 <!-- 面包屑导航第一个元素的分类名称，即当前分类的顶级分类-->
-                <h2><?php echo $familysCat[0]['cat_name']; ?></h2>
+                <h2><?php echo $familyCat[0]['cat_name']; ?></h2>
                 <div class="catlist_wrap">
                     <!-- 循环顶级下面的二级分类 -->
                     <!-- 不能循环顶级，因为当前分类只有一个最顶级，通过面包屑导航第一个元素即获取到顶级元素的cat_id -->
-                    <?php foreach($children[ $familysCat[0]['cat_id'] ] as $two_cat_id): ?>
+                    <?php foreach($children[ $familyCat[0]['cat_id'] ] as $two_cat_id): ?>
                     <div class="child">
                         <h3 class="on"><b></b><?php echo $catsData[ $two_cat_id ]['cat_name']; ?></h3>
                         <ul>
@@ -676,9 +676,9 @@
                     <li>
                         <dl>
                             <dt><a href="<?php echo url('/home/goods/detail',['goods_id'=>$v['goods_id']]); ?>"><img src="/static/upload/<?php echo json_decode($v['goods_middle'])[0]; ?>" alt="" /></a></dt>
-                            <dd><a href="<?php echo url('/home/goods/detail',['goods_id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></dt>
-                            <dd><strong>￥ <?php echo $v['goods_price']; ?></strong></dt>
-                            <dd><a href=""><em>已有10人评价</em></a></dt>
+                            <dt><a href="<?php echo url('/home/goods/detail',['goods_id'=>$v['goods_id']]); ?>"><?php echo $v['goods_name']; ?></a></dt>
+                            <dt><strong>￥ <?php echo $v['goods_price']; ?></strong></dt>
+                            <dt><a href=""><em>已有10人评价</em></a></dt>
                         </dl>
                     </li>
                     <?php endforeach; ?>

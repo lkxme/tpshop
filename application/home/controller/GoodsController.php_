@@ -1,0 +1,23 @@
+<?php
+namespace app\hoem\controller;
+use app\home\model\Goods;
+use think\Controller;
+use app\home\model\Category;
+class GoodsController extends Controller{
+    public function datail()
+    {
+        halt(12);
+        $goods_id = input('goods_id');
+        $goodsInfo = Goods::find($goods_id)->toArray();
+        //面包屑导航
+        $catModel = new Category;
+        $cats = $catModel->select();
+        $familyCats = $catModel->getFamilyCat($cats,$goodsInfo);
+        //dump($goodsInfo);die;
+        return $this->fetch('',[
+            'familyCats' => $familyCats,
+            'goodsInfo' => $goodsInfo
+            ]);
+    }
+
+}

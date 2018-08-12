@@ -27,6 +27,8 @@ Route::get('/','home/index/index');
 Route::get('houtai','admin/index/index');
 
 Route::group('home',function(){
+    //取出商品详情的路由
+    Route::any('goods/detail','home/goods/detail');
     //面包屑路由
     Route::any('category/index','home/category/index');
     //qq登录成功后的回调路由
