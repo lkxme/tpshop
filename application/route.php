@@ -27,6 +27,8 @@ Route::get('/','home/index/index');
 Route::get('houtai','admin/index/index');
 
 Route::group('home',function(){
+    //购物车的添加
+    Route::any('cart/addGoodsToCart','home/cart/addGoodsToCart');
     //取出商品详情的路由
     Route::any('goods/detail','home/goods/detail');
     //面包屑路由
